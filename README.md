@@ -1,5 +1,6 @@
 # PYNQ-project
-Neural network Language model design based on PYNQ board
+--Neural network Language model design based on PYNQ board
+
 Contents
 1. Introduction
 2. PYNQ configuration
