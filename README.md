@@ -13,9 +13,21 @@ FPGA has been largely applied into speech recognition, machine learning, and clo
 
 2. PYNQ configuration
 
-PYNQ is the abbreviation of Python Productivity for ZYNQ [7]. From the hardware architecture perspective, the core chip of PYNQ is still ZYNQ which is a FPGA SOC platform combined Programmable Logic (PL) with Programmable System (PS) to perform signals sampling, processing, and output. Form the software perspective, integrated with Python language and other programming libraries, PYNQ makes it convenient to develop embedded system based on FPGA. The PYNQ board is shown as follows. 
+PYNQ is the abbreviation of Python Productivity for ZYNQ [7]. From the hardware architecture perspective, the core chip of PYNQ is still ZYNQ which is a FPGA SOC platform combined Programmable Logic (PL) with Programmable System (PS) to perform signals sampling, processing, and output. Form the software perspective, integrated with Python language and other programming libraries, PYNQ makes it convenient to develop embedded system based on FPGA. 
+
+
+
+In this section, I will introduce how to boot the PYNQ board and install dependent software packages through internet. 
+Bascially, you can get all information about PYNQ board setup in http://pynq.readthedocs.io/en/latest/getting_started.html . Here, I will do some supplementary instructions.
+
+First of all, We can download the image file from http://www.pynq.io, and follow the instructions in the above website to write the sd card which must be larger than 8G. Finally, insert the micro sd card into sd card slot in the PYNQ board, connect power to the board, and turn on the power switch. The board will be activated in a few seconds. The pynq_z1_image_2016_09_14 image file includes only Python2.7, Jupyter notebook, and few software packages. Therefore, We need to install or upgrade the necessary packages by ourselves in order to build deep neural network or other python applicaitons. 
+
+Secondly, we need to connect to internet to download or update the necessary software packages. According to my experience, the best way to link to internet is through mini wifi adapter which is shown as the white item in the following PYNQ board photo.
 
 ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/pynq.jpg)
+
+We can access to the linux Operation System (OS) through building a new Terminal and check the system information such as the linux OS version, the number of CPUs, and long_bits of the system. The linux OS information is shown as follows.
+
 
 3. Software installation
 4. Overlay design
