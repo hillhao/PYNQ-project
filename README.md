@@ -26,10 +26,11 @@ Secondly, we need to connect to internet to download or update the necessary sof
 
 ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/usbpynq.jpg)
 
-Before using the wifi adapter, you need to configure the network segment of yout PC or laptop to 192.168.2.1. Because the ip address of the PYNQ board is 192.168.2.99. To make a connection, the both mahcines need to be in the same network segment. Then connect the PYNQ board to the PC or laptop through ethernet wire and tap http://pynq:9090  in the web browser. You will see the interface like the following picture.
+Before using the wifi adapter, you need to configure the network segment of yout PC or laptop to 192.168.2.X(X can be any intger from 1 to 255 except 99). Because the ip address of the PYNQ board is 192.168.2.99. To make a connection, the both mahcines need to be in the same network segment. Then connect the PYNQ board to the PC or laptop through ethernet wire and tap http://pynq:9090  in the web browser. You will see the interface like the following picture.
 
 ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/login1.jpg)
 
+As we can see, this is a Jupyter notebook interface. Let's check the system information first.
 
 We can access to the linux Operation System (OS) through building a new Terminal and check the system information such as the linux OS version, the number of CPUs, and long_bits of the system. The linux OS information is shown as follows.
 
