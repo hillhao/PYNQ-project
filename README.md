@@ -13,12 +13,9 @@ FPGA has been largely applied into speech recognition, machine learning, and clo
 
 2. PYNQ configuration
 
-PYNQ is the abbreviation of Python Productivity for ZYNQ [7]. From the hardware architecture perspective, the core chip of PYNQ is still ZYNQ which is a FPGA SOC platform combined Programmable Logic (PL) with Programmable System (PS) to perform signals sampling, processing, and output. Form the software perspective, integrated with Python language and other programming libraries, PYNQ makes it convenient to develop embedded system based on FPGA. The PYNQ board is shown as Fig.1. 
+PYNQ is the abbreviation of Python Productivity for ZYNQ [7]. From the hardware architecture perspective, the core chip of PYNQ is still ZYNQ which is a FPGA SOC platform combined Programmable Logic (PL) with Programmable System (PS) to perform signals sampling, processing, and output. Form the software perspective, integrated with Python language and other programming libraries, PYNQ makes it convenient to develop embedded system based on FPGA. The PYNQ board is shown as follows. 
+
 ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/pynq.jpg)
-
- 
-Fig.1. PYNQ board
-
 
 3. Software installation
 4. Overlay design
