@@ -24,7 +24,7 @@ First of all, We can download the image file from http://www.pynq.io, and follow
 
 Secondly, we need to connect to internet to download or update the necessary software packages. According to my experience, the best way to link to internet is through mini wifi adapter which is shown as the white item in the following PYNQ board photo.
 
-![image](https://github.com/hillhao/PYNQ-project/blob/master/images/pynq.jpg)
+![image](https://github.com/hillhao/PYNQ-project/blob/master/images/usbpynq.jpg)
 
 We can access to the linux Operation System (OS) through building a new Terminal and check the system information such as the linux OS version, the number of CPUs, and long_bits of the system. The linux OS information is shown as follows.
 
