@@ -22,9 +22,13 @@ Bascially, you can get all information about PYNQ board setup in http://pynq.rea
 
 First of all, We can download the image file from http://www.pynq.io, and follow the instructions in the above website to write the sd card which must be larger than 8G. Finally, insert the micro sd card into sd card slot in the PYNQ board, connect power to the board, and turn on the power switch. The board will be activated in a few seconds. The pynq_z1_image_2016_09_14 image file includes only Python2.7, Jupyter notebook, and few software packages. Therefore, We need to install or upgrade the necessary packages by ourselves in order to build deep neural network or other python applicaitons. 
 
-Secondly, we need to connect to internet to download or update the necessary software packages. According to my experience, the best way to link to internet is through mini wifi adapter which is shown as the white item in the following PYNQ board photo.
+Secondly, we need to connect to internet to download or update the necessary software packages. According to my experience, the best way to link to internet is through mini wifi adapter which is shown as the white item in the following PYNQ board photo. It is called Raspberry Pi Official Wi-Fi Dongle and can be bought through amazon.com. Other mini wifi dongles should be suitable to the PYNQ board.
 
 ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/usbpynq.jpg)
+
+Before using the wifi adapter, you need to configure the network segment of yout PC or laptop to 192.168.2.1. Because the ip address of the PYNQ board is 192.168.2.99. To make a connection, the both mahcines need to be in the same network segment. Then connect the PYNQ board to the PC or laptop through ethernet wire and tap http://pynq:9090  in the web browser. You will see the interface like the following picture.
+
+
 
 We can access to the linux Operation System (OS) through building a new Terminal and check the system information such as the linux OS version, the number of CPUs, and long_bits of the system. The linux OS information is shown as follows.
 
