@@ -4,15 +4,15 @@ The other folders are for the PYNQ project, which implements a Deep recurrent ne
 through overlay. The overlay base project is based on the PYNQ borad design (https://github.com/Xilinx/PYNQ).u
 In order to build your own overlay design, you should follow the below instructions:
 
-a, build a new project in the ~/vivado/base folder;
+   a, build a new project in the ~/vivado/base folder;
 
-b, open the base project using the tcl file stored in ~/bitstream folder, the instruction is like the following
+   b, open the base project using the tcl file stored in ~/bitstream folder, the instruction is like the following
    (choose your own path): 
    source F:/xil_pro/Pynq-Z1_081902bk/bitstream/base.tcl
    
-c, build a your own ip core with AXI Stream interface;
+   c, build a your own ip core with AXI Stream interface;
 
-d, save the tcl file when the implement process is finished, using the following instruction (choose your own path
+   d, save the tcl file when the implement process is finished, using the following instruction (choose your own path
    and tcl file name):
    write  F:/xil_pro/Pynq-Z1_081902bk/bitstream/new_overlay.tcl
 
