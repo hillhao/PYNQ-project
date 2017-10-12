@@ -2,7 +2,7 @@
 
    The accelerator_sim folder contains the simulation files for accelerator, which can be run independently.
    The other folders are for the PYNQ project, which implements a Deep recurrent neural network accelerator
-   through overlay. The overlay base project is based on the PYNQ borad design (https://github.com/Xilinx/PYNQ).u
+   through overlay. The overlay base project is based on the PYNQ borad design (https://github.com/Xilinx/PYNQ).
    In order to build your own overlay design, you should follow the below instructions:
 
       a, build a new project in the ~/vivado/base folder;
