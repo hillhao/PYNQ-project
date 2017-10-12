@@ -1,0 +1,275 @@
+
+`timescale 1 ns / 1 ps
+
+	module accelerator_v1_0 #
+	(
+		// Users to add parameters here
+    parameter integer Coff_weights_h1 	= 7,
+    parameter integer Coff_weights_h2 	= 7,
+    parameter integer Coff_weights_h3 	= 7,
+    parameter integer Coff_weights_h4 	= 7,
+    parameter integer Coff_weights_h5 	= 7,
+    parameter integer Coff_weights_h6 	= 7,
+    parameter integer Coff_weights_h7 	= 7,
+    parameter integer Coff_weights_h8 	= 7,
+    parameter integer Coff_weights_h9 	= 7,
+    parameter integer Coff_weights_h10	= 7,
+    
+		// User parameters ends
+		// Do not modify the parameters beyond this line
+
+
+		// Parameters of Axi Slave Bus Interface S00_AXIS
+		parameter integer C_S00_AXIS_TDATA_WIDTH	= 32,
+
+		// Parameters of Axi Master Bus Interface M00_AXIS
+		parameter integer C_M00_AXIS_TDATA_WIDTH	= 32,
+		parameter integer C_M00_AXIS_START_COUNT	= 32
+	)
+	(
+		// Users to add ports here
+
+		// User ports ends
+		// Do not modify the ports beyond this line
+
+
+		// Ports of Axi Slave Bus Interface S00_AXIS
+		input wire  s00_axis_aclk,
+		input wire  s00_axis_aresetn,
+		output wire  s00_axis_tready,
+		input wire [C_S00_AXIS_TDATA_WIDTH-1 : 0] s00_axis_tdata,
+		input wire [(C_S00_AXIS_TDATA_WIDTH/8)-1 : 0] s00_axis_tstrb,
+		input wire  s00_axis_tlast,
+		input wire  s00_axis_tvalid,
+
+		// Ports of Axi Master Bus Interface M00_AXIS
+		input wire  m00_axis_aclk,
+		input wire  m00_axis_aresetn,
+		output wire  m00_axis_tvalid,
+		output wire [C_M00_AXIS_TDATA_WIDTH-1 : 0] m00_axis_tdata,
+		output wire [(C_M00_AXIS_TDATA_WIDTH/8)-1 : 0] m00_axis_tstrb,
+		output wire  m00_axis_tlast,
+		input wire  m00_axis_tready
+	);
+// Instantiation of Axi Bus Interface S00_AXIS
+	accelerator_v1_0_S00_AXIS # ( 
+		.C_S_AXIS_TDATA_WIDTH(C_S00_AXIS_TDATA_WIDTH)
+	) accelerator_v1_0_S00_AXIS_inst (
+	  .rx_axi_slv_en  (axi_slv2mst_en),
+	  .rx_axi_slv_data(axi_slv2mst_data),
+		.S_AXIS_ACLK(s00_axis_aclk),
+		.S_AXIS_ARESETN(s00_axis_aresetn),
+		.S_AXIS_TREADY(s00_axis_tready),
+		.S_AXIS_TDATA(s00_axis_tdata),
+		.S_AXIS_TSTRB(s00_axis_tstrb),
+		.S_AXIS_TLAST(s00_axis_tlast),
+		.S_AXIS_TVALID(s00_axis_tvalid)
+	);
+
+// Instantiation of Axi Bus Interface M00_AXIS
+	accelerator_v1_0_M00_AXIS # ( 
+		.C_M_AXIS_TDATA_WIDTH(C_M00_AXIS_TDATA_WIDTH),
+		.C_M_START_COUNT(C_M00_AXIS_START_COUNT)
+	) accelerator_v1_0_M00_AXIS_inst (
+	  .rx_axi_slv_en  (maxi_en),
+	  .rx_axi_slv_data(maxi_data),
+		.M_AXIS_ACLK(m00_axis_aclk),
+		.M_AXIS_ARESETN(m00_axis_aresetn),
+		.M_AXIS_TVALID(m00_axis_tvalid),
+		.M_AXIS_TDATA(m00_axis_tdata),
+		.M_AXIS_TSTRB(m00_axis_tstrb),
+		.M_AXIS_TLAST(m00_axis_tlast),
+		.M_AXIS_TREADY(m00_axis_tready)
+	);
+
+	// Add user logic here
+	wire             axi_slv2mst_en;
+	wire  [31:0]     axi_slv2mst_data;	
+	reg             axi_slv2mst_en_d1;
+	reg             axi_slv2mst_en_d2;
+	reg  [31:0]     axi_slv2mst_data_d1;		
+	
+	//delay axi_slv2mst_en
+	always@(posedge s00_axis_aclk)
+	begin
+			  if (!s00_axis_aresetn) 
+	  // Synchronous reset (active low)
+	      begin
+	        axi_slv2mst_en_d1 <= 1'b0;
+	        axi_slv2mst_en_d2 <= 1'b0;
+	      end 
+	      else
+	      begin
+	        axi_slv2mst_en_d1 <= axi_slv2mst_en;
+	        axi_slv2mst_en_d2 <= axi_slv2mst_en_d1;
+	      end  	      
+	end	
+	
+	wire    pos_axi_slv2mst_en;
+	wire    neg_axi_slv2mst_en;
+	assign pos_axi_slv2mst_en = (!axi_slv2mst_en_d1)&& (axi_slv2mst_en);
+	assign neg_axi_slv2mst_en = (axi_slv2mst_en_d1)&& (!axi_slv2mst_en);
+	reg  [3:0]  calc_cnt;
+	always@(posedge s00_axis_aclk)
+	begin
+			  if (!s00_axis_aresetn) 
+	  // Synchronous reset (active low)
+	      begin
+	        calc_cnt <= 4'b0;
+	      end 
+	      else if(calc_cnt==9'd9)
+	        calc_cnt <= 4'b0;
+	      else if (pos_axi_slv2mst_en)
+	      begin
+	        calc_cnt <= 1'b1;
+	      end  	
+	      else if (calc_cnt >=9'd0)   
+	        calc_cnt <= calc_cnt + 1'b1;   
+	end	
+	
+	// operation for receiving data
+	reg   [31:0] Multiacc1   ;
+  reg   [31:0] Multiacc2   ;
+  reg   [31:0] Multiacc3   ;
+  reg   [31:0] Multiacc4   ;
+  reg   [31:0] Multiacc5   ;
+  reg   [31:0] Multiacc6   ;
+  reg   [31:0] Multiacc7   ;
+  reg   [31:0] Multiacc8   ;
+  reg   [31:0] Multiacc9   ;
+  reg   [31:0] Multiacc10  ;
+
+	always@(posedge s00_axis_aclk)
+	begin
+			  if (!s00_axis_aresetn) 
+	  // Synchronous reset (active low)
+	      begin
+	        Multiacc1 <= 32'b0;
+	        Multiacc2 <= 32'b0;
+	        Multiacc3 <= 32'b0;
+	        Multiacc4 <= 32'b0;
+	        Multiacc5 <= 32'b0;
+	        Multiacc6 <= 32'b0;
+	        Multiacc7 <= 32'b0;
+	        Multiacc8 <= 32'b0;
+	        Multiacc9 <= 32'b0;
+	        Multiacc10<= 32'b0;
+	        
+	      end 
+	      else if(axi_slv2mst_en_d1)
+	      begin
+	        Multiacc1  <= axi_slv2mst_data*Coff_weights_h1   + Multiacc1 ;
+	        Multiacc2  <= axi_slv2mst_data*Coff_weights_h2   + Multiacc2 ;
+	        Multiacc3  <= axi_slv2mst_data*Coff_weights_h3   + Multiacc3 ;
+	        Multiacc4  <= axi_slv2mst_data*Coff_weights_h4   + Multiacc4 ;
+	        Multiacc5  <= axi_slv2mst_data*Coff_weights_h5   + Multiacc5 ;
+	        Multiacc6  <= axi_slv2mst_data*Coff_weights_h6   + Multiacc6 ;
+	        Multiacc7  <= axi_slv2mst_data*Coff_weights_h7   + Multiacc7 ;
+	        Multiacc8  <= axi_slv2mst_data*Coff_weights_h8   + Multiacc8 ;
+	        Multiacc9  <= axi_slv2mst_data*Coff_weights_h9   + Multiacc9 ;
+	        Multiacc10 <= axi_slv2mst_data*Coff_weights_h10  + Multiacc10;	        
+	      end  		            
+	end	
+	reg [31:0]  Maxi_Multiacc1 ;
+  reg [31:0]  Maxi_Multiacc2 ;
+  reg [31:0]  Maxi_Multiacc3 ;
+  reg [31:0]  Maxi_Multiacc4 ;
+  reg [31:0]  Maxi_Multiacc5 ;
+  reg [31:0]  Maxi_Multiacc6 ;
+  reg [31:0]  Maxi_Multiacc7 ;
+  reg [31:0]  Maxi_Multiacc8 ;
+  reg [31:0]  Maxi_Multiacc9 ;
+  reg [31:0]  Maxi_Multiacc10;
+
+
+  always@(posedge s00_axis_aclk)
+	begin
+			  if (!s00_axis_aresetn) 
+	  // Synchronous reset (active low)
+	      begin
+	        Maxi_Multiacc1 <= 32'b0;
+	        Maxi_Multiacc2 <= 32'b0;
+	        Maxi_Multiacc3 <= 32'b0;
+	        Maxi_Multiacc4 <= 32'b0;
+	        Maxi_Multiacc5 <= 32'b0;
+	        Maxi_Multiacc6 <= 32'b0;
+	        Maxi_Multiacc7 <= 32'b0;
+	        Maxi_Multiacc8 <= 32'b0;
+	        Maxi_Multiacc9 <= 32'b0;
+	        Maxi_Multiacc10<= 32'b0;
+	        
+	      end 
+	      else if(neg_axi_slv2mst_en)
+	      begin
+	        Maxi_Multiacc1  <= Multiacc1  ;
+	        Maxi_Multiacc2  <= Multiacc2  ;
+	        Maxi_Multiacc3  <= Multiacc3  ;
+	        Maxi_Multiacc4  <= Multiacc4  ;
+	        Maxi_Multiacc5  <= Multiacc5  ;
+	        Maxi_Multiacc6  <= Multiacc6  ;
+	        Maxi_Multiacc7  <= Multiacc7  ;
+	        Maxi_Multiacc8  <= Multiacc8  ;
+	        Maxi_Multiacc9  <= Multiacc9  ;
+	        Maxi_Multiacc10 <= Multiacc10 ;	        
+	      end  		            
+	end	
+	
+	reg  [3:0]   transfer_cnt;
+	reg  maxi_en;
+	always@(posedge s00_axis_aclk)
+	begin
+			  if (!s00_axis_aresetn) 
+	  // Synchronous reset (active low)
+	      begin
+	        transfer_cnt <= 4'b0;
+	        maxi_en      <= 1'b0;
+	      end 
+	      else if(transfer_cnt==9'd10)
+	      begin
+	        transfer_cnt <= 4'b0;
+	        maxi_en      <= 1'b0;
+	      end
+	      else if (neg_axi_slv2mst_en)
+	      begin
+	        transfer_cnt <= 1'b1;
+	        maxi_en      <= 1'b1;
+	      end  	
+	      else if (transfer_cnt >=9'd0)   
+	        transfer_cnt <= transfer_cnt + 1'b1;   
+	end		
+	
+	reg   [31:0]   maxi_data;
+	always@(posedge s00_axis_aclk)
+	begin
+			  if (!s00_axis_aresetn) 
+	  // Synchronous reset (active low)
+	      begin
+	        maxi_data <= 32'b0;
+	      end 
+	      else if(transfer_cnt==9'd1)
+          maxi_data <= Maxi_Multiacc1;
+	      else if(transfer_cnt==9'd2)
+          maxi_data <= Maxi_Multiacc2;
+        else if(transfer_cnt==9'd3)
+          maxi_data <= Maxi_Multiacc3;
+        else if(transfer_cnt==9'd4)
+          maxi_data <= Maxi_Multiacc4;
+        else if(transfer_cnt==9'd5)
+          maxi_data <= Maxi_Multiacc5;
+        else if(transfer_cnt==9'd6)
+          maxi_data <= Maxi_Multiacc6;
+        else if(transfer_cnt==9'd7)
+          maxi_data <= Maxi_Multiacc7;
+        else if(transfer_cnt==9'd8)
+          maxi_data <= Maxi_Multiacc8;
+        else if(transfer_cnt==9'd9)
+          maxi_data <= Maxi_Multiacc9;
+        else if(transfer_cnt==9'd10)
+          maxi_data <= Maxi_Multiacc10;
+        else;
+
+	end				
+   
+	// User logic ends
+
+	endmodule
