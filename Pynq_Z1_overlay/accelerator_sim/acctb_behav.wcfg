@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="acctb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="acctb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="4198896900000fs"></ZoomStartTime>
+      <ZoomEndTime time="4199155500001fs"></ZoomEndTime>
+      <Cursor1Time time="4198957500000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="23" />
+   <wvobject fp_name="/acctb/s_trdy" type="logic">
+      <obj_property name="ElementShortName">s_trdy</obj_property>
+      <obj_property name="ObjectShortName">s_trdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/rst_en" type="logic">
+      <obj_property name="ElementShortName">rst_en</obj_property>
+      <obj_property name="ObjectShortName">rst_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/s_vld" type="logic">
+      <obj_property name="ElementShortName">s_vld</obj_property>
+      <obj_property name="ObjectShortName">s_vld</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/s_data" type="array">
+      <obj_property name="ElementShortName">s_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_data[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/cnt" type="array">
+      <obj_property name="ElementShortName">cnt[8:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[8:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/axi_slv2mst_en" type="logic">
+      <obj_property name="ElementShortName">axi_slv2mst_en</obj_property>
+      <obj_property name="ObjectShortName">axi_slv2mst_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/axi_slv2mst_data" type="array">
+      <obj_property name="ElementShortName">axi_slv2mst_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_slv2mst_data[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/pos_axi_slv2mst_en" type="logic">
+      <obj_property name="ElementShortName">pos_axi_slv2mst_en</obj_property>
+      <obj_property name="ObjectShortName">pos_axi_slv2mst_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/neg_axi_slv2mst_en" type="logic">
+      <obj_property name="ElementShortName">neg_axi_slv2mst_en</obj_property>
+      <obj_property name="ObjectShortName">neg_axi_slv2mst_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/transfer_cnt" type="array">
+      <obj_property name="ElementShortName">transfer_cnt[6:0]</obj_property>
+      <obj_property name="ObjectShortName">transfer_cnt[6:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/maxi_data" type="array">
+      <obj_property name="ElementShortName">maxi_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">maxi_data[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/accelerator_v1_0_S00_AXIS_inst/fifo_wren" type="logic">
+      <obj_property name="ElementShortName">fifo_wren</obj_property>
+      <obj_property name="ObjectShortName">fifo_wren</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/accelerator_v1_0_S00_AXIS_inst/S_AXIS_TVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXIS_TVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS_TVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/accelerator_v1_0_S00_AXIS_inst/S_AXIS_TDATA" type="array">
+      <obj_property name="ElementShortName">S_AXIS_TDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXIS_TDATA[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/maxi_en" type="logic">
+      <obj_property name="ElementShortName">maxi_en</obj_property>
+      <obj_property name="ObjectShortName">maxi_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/accelerator_v1_0_M00_AXIS_inst/M_AXIS_TVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXIS_TVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXIS_TVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/accelerator_v1_0_M00_AXIS_inst/M_AXIS_TDATA" type="array">
+      <obj_property name="ElementShortName">M_AXIS_TDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXIS_TDATA[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/sum3" type="array">
+      <obj_property name="ElementShortName">sum3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sum3[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/sum1" type="array">
+      <obj_property name="ElementShortName">sum1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sum1[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/sum2" type="array">
+      <obj_property name="ElementShortName">sum2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sum2[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/Multiacc1" type="array">
+      <obj_property name="ElementShortName">Multiacc1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Multiacc1[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/acctb/uut/Maxi_Multiacc1" type="array">
+      <obj_property name="ElementShortName">Maxi_Multiacc1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Maxi_Multiacc1[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
