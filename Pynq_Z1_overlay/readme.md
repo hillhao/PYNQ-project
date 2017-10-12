@@ -1,4 +1,4 @@
-1. Project 
+# 1. Project 
 
    The accelerator_sim folder contains the simulation files for accelerator, which can be run independently.
    The other folders are for the PYNQ project, which implements a Deep recurrent neural network accelerator
@@ -18,7 +18,7 @@
       write  F:/xil_pro/Pynq-Z1_081902bk/bitstream/new_overlay.tcl
 
  
-2. Design and implement
+# 2. Design and implement
 
    This is the Pynq project based on the Z1 board, which includes the overlay design part.
    The FPGA system diargram is shown as the following figure. 
