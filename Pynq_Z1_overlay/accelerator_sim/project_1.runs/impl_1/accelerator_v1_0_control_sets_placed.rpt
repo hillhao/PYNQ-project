@@ -1,0 +1,60 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.1 (win64) Build 1538259 Fri Apr  8 15:45:27 MDT 2016
+| Date         : Fri Sep 01 04:01:45 2017
+| Host         : WIN-20160928TAF running 64-bit Service Pack 1  (build 7601)
+| Command      : report_control_sets -verbose -file accelerator_v1_0_control_sets_placed.rpt
+| Design       : accelerator_v1_0
+| Device       : xc7z020
+---------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |     7 |
+| Unused register locations in slices containing registers |    18 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |            1009 |          313 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |            1635 |          412 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |            1642 |          613 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++--------------------------+-------------------------------------+---------------------------------------------------+------------------+----------------+
+|       Clock Signal       |            Enable Signal            |                  Set/Reset Signal                 | Slice Load Count | Bel Load Count |
++--------------------------+-------------------------------------+---------------------------------------------------+------------------+----------------+
+|  m00_axis_aclk_IBUF_BUFG |                                     |                                                   |                1 |              1 |
+|  s00_axis_aclk_IBUF_BUFG | transfer_cnt0                       | accelerator_v1_0_S00_AXIS_inst/transfer_cnt[0]    |                4 |             10 |
+|  s00_axis_aclk_IBUF_BUFG | maxi_data[31]_i_1_n_0               | accelerator_v1_0_S00_AXIS_inst/SR[0]              |               18 |             32 |
+|  s00_axis_aclk_IBUF_BUFG |                                     | accelerator_v1_0_S00_AXIS_inst/SR[0]              |               12 |             35 |
+|  s00_axis_aclk_IBUF_BUFG |                                     |                                                   |              312 |           1008 |
+|  s00_axis_aclk_IBUF_BUFG |                                     | accelerator_v1_0_S00_AXIS_inst/Multiacc50_reg[31] |              400 |           1600 |
+|  s00_axis_aclk_IBUF_BUFG | accelerator_v1_0_S00_AXIS_inst/E[0] | accelerator_v1_0_S00_AXIS_inst/SR[0]              |              591 |           1600 |
++--------------------------+-------------------------------------+---------------------------------------------------+------------------+----------------+
+
+

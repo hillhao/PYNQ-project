@@ -1,0 +1,602 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2016.1 (win64) Build 1538259 Fri Apr  8 15:45:27 MDT 2016
+| Date             : Fri Sep 01 04:02:38 2017
+| Host             : WIN-20160928TAF running 64-bit Service Pack 1  (build 7601)
+| Command          : report_power -file accelerator_v1_0_power_routed.rpt -pb accelerator_v1_0_power_summary_routed.pb -rpx accelerator_v1_0_power_routed.rpx
+| Design           : accelerator_v1_0
+| Device           : xc7z020clg400-1
+| Design State     : routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+-----------------------------------+
+| Total On-Chip Power (W)  | 193.989 (Junction temp exceeded!) |
+| Dynamic (W)              | 192.949                           |
+| Device Static (W)        | 1.040                             |
+| Effective TJA (C/W)      | 11.5                              |
+| Max Ambient (C)          | 0.0                               |
+| Junction Temperature (C) | 125.0                             |
+| Confidence Level         | Low                               |
+| Setting File             | ---                               |
+| Simulation Activity File | ---                               |
+| Design Nets Matched      | NA                                |
++--------------------------+-----------------------------------+
+
+
+1.1 On-Chip Components
+----------------------
+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Slice Logic    |    42.881 |    15862 |       --- |             --- |
+|   LUT as Logic |    25.597 |     5149 |     53200 |            9.68 |
+|   CARRY4       |    14.801 |     3024 |     13300 |           22.74 |
+|   Register     |     2.363 |     4286 |    106400 |            4.03 |
+|   F7/F8 Muxes  |     0.109 |      192 |     53200 |            0.36 |
+|   BUFG         |     0.012 |        2 |        32 |            6.25 |
+|   Others       |     0.000 |     3159 |       --- |             --- |
+| Signals        |    79.397 |    16684 |       --- |             --- |
+| DSPs           |    51.871 |       50 |       220 |           22.73 |
+| I/O            |    18.800 |       76 |       125 |           60.80 |
+| Static Power   |     1.040 |          |           |                 |
+| Total          |   193.990 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
++-----------+-------------+-----------+-------------+------------+
+| Vccint    |       1.000 |   174.592 |     174.293 |      0.299 |
+| Vccaux    |       1.800 |     1.627 |       1.527 |      0.100 |
+| Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco18    |       1.800 |     8.838 |       8.837 |      0.001 |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.026 |       0.000 |      0.026 |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
+| MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccpint   |       1.000 |     0.473 |       0.000 |      0.473 |
+| Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |
+| Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |
+| Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |
+| Vcco_mio0 |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vcco_mio1 |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
++-----------+-------------+-----------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                                    |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
+| Device models               | High       | Device models are Production                           |                                                                                                                    |
+|                             |            |                                                        |                                                                                                                    |
+| Overall confidence level    | Low        |                                                        |                                                                                                                    |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+------------------------+
+| Ambient Temp (C)      | 25.0                   |
+| ThetaJA (C/W)         | 11.5                   |
+| Airflow (LFM)         | 250                    |
+| Heat Sink             | none                   |
+| ThetaSA (C/W)         | 0.0                    |
+| Board Selection       | medium (10"x10")       |
+| # of Board Layers     | 8to11 (8 to 11 Layers) |
+| Board Temperature (C) | 25.0                   |
++-----------------------+------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------+--------+-----------------+
+| Clock | Domain | Constraint (ns) |
++-------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++----------------------------------------------+-----------+
+| Name                                         | Power (W) |
++----------------------------------------------+-----------+
+| accelerator_v1_0                             |   192.950 |
+|   accelerator_v1_0_M00_AXIS_inst             |     0.002 |
+|   accelerator_v1_0_S00_AXIS_inst             |     7.872 |
+|   mult_u1                                    |     1.034 |
+|     U0                                       |     1.034 |
+|       i_mult                                 |     1.034 |
+|         gDSP.gHYBRID.iHYBRID                 |     1.034 |
+|           two_fabric_mults.add_bypass_delay  |     0.061 |
+|           two_fabric_mults.dsp_based.iDSP    |     0.586 |
+|           two_fabric_mults.iLUT_side         |     0.177 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.022 |
+|   mult_u10                                   |     2.400 |
+|     U0                                       |     2.400 |
+|       i_mult                                 |     2.400 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.400 |
+|           two_fabric_mults.add_bypass_delay  |     0.095 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.108 |
+|           two_fabric_mults.iLUT_side         |     0.856 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.047 |
+|   mult_u11                                   |     2.687 |
+|     U0                                       |     2.687 |
+|       i_mult                                 |     2.687 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.687 |
+|           two_fabric_mults.add_bypass_delay  |     0.089 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.170 |
+|           two_fabric_mults.iLUT_side         |     1.061 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.058 |
+|   mult_u12                                   |     3.071 |
+|     U0                                       |     3.071 |
+|       i_mult                                 |     3.071 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.071 |
+|           two_fabric_mults.add_bypass_delay  |     0.161 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.219 |
+|           two_fabric_mults.iLUT_side         |     1.265 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.048 |
+|   mult_u13                                   |     3.218 |
+|     U0                                       |     3.218 |
+|       i_mult                                 |     3.218 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.218 |
+|           two_fabric_mults.add_bypass_delay  |     0.150 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.241 |
+|           two_fabric_mults.iLUT_side         |     1.393 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.063 |
+|   mult_u14                                   |     3.318 |
+|     U0                                       |     3.318 |
+|       i_mult                                 |     3.318 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.318 |
+|           two_fabric_mults.add_bypass_delay  |     0.167 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.294 |
+|           two_fabric_mults.iLUT_side         |     1.357 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.063 |
+|   mult_u15                                   |     3.259 |
+|     U0                                       |     3.259 |
+|       i_mult                                 |     3.259 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.259 |
+|           two_fabric_mults.add_bypass_delay  |     0.135 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.215 |
+|           two_fabric_mults.iLUT_side         |     1.508 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.059 |
+|   mult_u16                                   |     2.126 |
+|     U0                                       |     2.126 |
+|       i_mult                                 |     2.126 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.126 |
+|           two_fabric_mults.add_bypass_delay  |     0.093 |
+|           two_fabric_mults.dsp_based.iDSP    |     0.995 |
+|           two_fabric_mults.iLUT_side         |     0.716 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.018 |
+|   mult_u17                                   |     2.454 |
+|     U0                                       |     2.454 |
+|       i_mult                                 |     2.454 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.454 |
+|           two_fabric_mults.add_bypass_delay  |     0.113 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.143 |
+|           two_fabric_mults.iLUT_side         |     0.857 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.024 |
+|   mult_u18                                   |     2.808 |
+|     U0                                       |     2.808 |
+|       i_mult                                 |     2.808 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.808 |
+|           two_fabric_mults.add_bypass_delay  |     0.119 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.181 |
+|           two_fabric_mults.iLUT_side         |     1.117 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.045 |
+|   mult_u19                                   |     2.938 |
+|     U0                                       |     2.938 |
+|       i_mult                                 |     2.938 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.938 |
+|           two_fabric_mults.add_bypass_delay  |     0.134 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.261 |
+|           two_fabric_mults.iLUT_side         |     1.142 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.044 |
+|   mult_u2                                    |     2.198 |
+|     U0                                       |     2.198 |
+|       i_mult                                 |     2.198 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.198 |
+|           two_fabric_mults.add_bypass_delay  |     0.207 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.115 |
+|           two_fabric_mults.iLUT_side         |     0.439 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.069 |
+|   mult_u20                                   |     3.023 |
+|     U0                                       |     3.023 |
+|       i_mult                                 |     3.023 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.023 |
+|           two_fabric_mults.add_bypass_delay  |     0.146 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.224 |
+|           two_fabric_mults.iLUT_side         |     1.284 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.041 |
+|   mult_u21                                   |     3.084 |
+|     U0                                       |     3.084 |
+|       i_mult                                 |     3.084 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.084 |
+|           two_fabric_mults.add_bypass_delay  |     0.112 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.246 |
+|           two_fabric_mults.iLUT_side         |     1.345 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.037 |
+|   mult_u22                                   |     3.164 |
+|     U0                                       |     3.164 |
+|       i_mult                                 |     3.164 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.164 |
+|           two_fabric_mults.add_bypass_delay  |     0.128 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.231 |
+|           two_fabric_mults.iLUT_side         |     1.409 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.058 |
+|   mult_u23                                   |     3.472 |
+|     U0                                       |     3.472 |
+|       i_mult                                 |     3.472 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.472 |
+|           two_fabric_mults.add_bypass_delay  |     0.186 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.263 |
+|           two_fabric_mults.iLUT_side         |     1.644 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.068 |
+|   mult_u24                                   |     2.377 |
+|     U0                                       |     2.377 |
+|       i_mult                                 |     2.377 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.377 |
+|           two_fabric_mults.add_bypass_delay  |     0.176 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.137 |
+|           two_fabric_mults.iLUT_side         |     0.707 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.028 |
+|   mult_u25                                   |     2.599 |
+|     U0                                       |     2.599 |
+|       i_mult                                 |     2.599 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.599 |
+|           two_fabric_mults.add_bypass_delay  |     0.114 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.175 |
+|           two_fabric_mults.iLUT_side         |     0.954 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.030 |
+|   mult_u26                                   |     2.969 |
+|     U0                                       |     2.969 |
+|       i_mult                                 |     2.969 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.969 |
+|           two_fabric_mults.add_bypass_delay  |     0.182 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.216 |
+|           two_fabric_mults.iLUT_side         |     1.212 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.059 |
+|   mult_u27                                   |     3.058 |
+|     U0                                       |     3.058 |
+|       i_mult                                 |     3.058 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.058 |
+|           two_fabric_mults.add_bypass_delay  |     0.144 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.207 |
+|           two_fabric_mults.iLUT_side         |     1.331 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.064 |
+|   mult_u28                                   |     3.459 |
+|     U0                                       |     3.459 |
+|       i_mult                                 |     3.459 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.459 |
+|           two_fabric_mults.add_bypass_delay  |     0.188 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.280 |
+|           two_fabric_mults.iLUT_side         |     1.529 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.051 |
+|   mult_u29                                   |     3.456 |
+|     U0                                       |     3.456 |
+|       i_mult                                 |     3.456 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.456 |
+|           two_fabric_mults.add_bypass_delay  |     0.129 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.223 |
+|           two_fabric_mults.iLUT_side         |     1.761 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.041 |
+|   mult_u3                                    |     2.353 |
+|     U0                                       |     2.353 |
+|       i_mult                                 |     2.353 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.353 |
+|           two_fabric_mults.add_bypass_delay  |     0.151 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.117 |
+|           two_fabric_mults.iLUT_side         |     0.637 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.083 |
+|   mult_u30                                   |     3.368 |
+|     U0                                       |     3.368 |
+|       i_mult                                 |     3.368 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.368 |
+|           two_fabric_mults.add_bypass_delay  |     0.147 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.212 |
+|           two_fabric_mults.iLUT_side         |     1.583 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.052 |
+|   mult_u31                                   |     3.816 |
+|     U0                                       |     3.816 |
+|       i_mult                                 |     3.816 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.816 |
+|           two_fabric_mults.add_bypass_delay  |     0.180 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.251 |
+|           two_fabric_mults.iLUT_side         |     1.954 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.055 |
+|   mult_u32                                   |     0.740 |
+|     U0                                       |     0.740 |
+|       i_mult                                 |     0.740 |
+|         gDSP.gHYBRID.iHYBRID                 |     0.740 |
+|           two_fabric_mults.add_bypass_delay  |     0.035 |
+|           two_fabric_mults.dsp_based.iDSP    |     0.287 |
+|           two_fabric_mults.iLUT_side         |     0.226 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.008 |
+|   mult_u33                                   |     1.768 |
+|     U0                                       |     1.768 |
+|       i_mult                                 |     1.768 |
+|         gDSP.gHYBRID.iHYBRID                 |     1.768 |
+|           two_fabric_mults.add_bypass_delay  |     0.123 |
+|           two_fabric_mults.dsp_based.iDSP    |     0.802 |
+|           two_fabric_mults.iLUT_side         |     0.421 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.032 |
+|   mult_u34                                   |     2.233 |
+|     U0                                       |     2.233 |
+|       i_mult                                 |     2.233 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.233 |
+|           two_fabric_mults.add_bypass_delay  |     0.103 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.065 |
+|           two_fabric_mults.iLUT_side         |     0.718 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.039 |
+|   mult_u35                                   |     2.509 |
+|     U0                                       |     2.509 |
+|       i_mult                                 |     2.509 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.509 |
+|           two_fabric_mults.add_bypass_delay  |     0.117 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.149 |
+|           two_fabric_mults.iLUT_side         |     0.896 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.053 |
+|   mult_u36                                   |     2.759 |
+|     U0                                       |     2.759 |
+|       i_mult                                 |     2.759 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.759 |
+|           two_fabric_mults.add_bypass_delay  |     0.115 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.230 |
+|           two_fabric_mults.iLUT_side         |     1.027 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.041 |
+|   mult_u37                                   |     3.024 |
+|     U0                                       |     3.024 |
+|       i_mult                                 |     3.024 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.024 |
+|           two_fabric_mults.add_bypass_delay  |     0.173 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.238 |
+|           two_fabric_mults.iLUT_side         |     1.192 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.054 |
+|   mult_u38                                   |     2.985 |
+|     U0                                       |     2.985 |
+|       i_mult                                 |     2.985 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.985 |
+|           two_fabric_mults.add_bypass_delay  |     0.136 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.240 |
+|           two_fabric_mults.iLUT_side         |     1.203 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.046 |
+|   mult_u39                                   |     3.236 |
+|     U0                                       |     3.236 |
+|       i_mult                                 |     3.236 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.236 |
+|           two_fabric_mults.add_bypass_delay  |     0.198 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.231 |
+|           two_fabric_mults.iLUT_side         |     1.429 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.055 |
+|   mult_u4                                    |     2.484 |
+|     U0                                       |     2.484 |
+|       i_mult                                 |     2.484 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.484 |
+|           two_fabric_mults.add_bypass_delay  |     0.155 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.216 |
+|           two_fabric_mults.iLUT_side         |     0.736 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.051 |
+|   mult_u40                                   |     1.898 |
+|     U0                                       |     1.898 |
+|       i_mult                                 |     1.898 |
+|         gDSP.gHYBRID.iHYBRID                 |     1.898 |
+|           two_fabric_mults.add_bypass_delay  |     0.138 |
+|           two_fabric_mults.dsp_based.iDSP    |     0.785 |
+|           two_fabric_mults.iLUT_side         |     0.623 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.027 |
+|   mult_u41                                   |     2.303 |
+|     U0                                       |     2.303 |
+|       i_mult                                 |     2.303 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.303 |
+|           two_fabric_mults.add_bypass_delay  |     0.095 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.060 |
+|           two_fabric_mults.iLUT_side         |     0.803 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.033 |
+|   mult_u42                                   |     2.743 |
+|     U0                                       |     2.743 |
+|       i_mult                                 |     2.743 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.743 |
+|           two_fabric_mults.add_bypass_delay  |     0.147 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.147 |
+|           two_fabric_mults.iLUT_side         |     1.079 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.046 |
+|   mult_u43                                   |     3.041 |
+|     U0                                       |     3.041 |
+|       i_mult                                 |     3.041 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.041 |
+|           two_fabric_mults.add_bypass_delay  |     0.171 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.185 |
+|           two_fabric_mults.iLUT_side         |     1.291 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.044 |
+|   mult_u44                                   |     3.097 |
+|     U0                                       |     3.097 |
+|       i_mult                                 |     3.097 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.097 |
+|           two_fabric_mults.add_bypass_delay  |     0.130 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.231 |
+|           two_fabric_mults.iLUT_side         |     1.335 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.044 |
+|   mult_u45                                   |     3.263 |
+|     U0                                       |     3.263 |
+|       i_mult                                 |     3.263 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.263 |
+|           two_fabric_mults.add_bypass_delay  |     0.134 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.238 |
+|           two_fabric_mults.iLUT_side         |     1.455 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.052 |
+|   mult_u46                                   |     3.358 |
+|     U0                                       |     3.358 |
+|       i_mult                                 |     3.358 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.358 |
+|           two_fabric_mults.add_bypass_delay  |     0.148 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.238 |
+|           two_fabric_mults.iLUT_side         |     1.614 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.060 |
+|   mult_u47                                   |     3.424 |
+|     U0                                       |     3.424 |
+|       i_mult                                 |     3.424 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.424 |
+|           two_fabric_mults.add_bypass_delay  |     0.211 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.218 |
+|           two_fabric_mults.iLUT_side         |     1.510 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.070 |
+|   mult_u48                                   |     2.503 |
+|     U0                                       |     2.503 |
+|       i_mult                                 |     2.503 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.503 |
+|           two_fabric_mults.add_bypass_delay  |     0.120 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.068 |
+|           two_fabric_mults.iLUT_side         |     0.948 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.026 |
+|   mult_u49                                   |     2.811 |
+|     U0                                       |     2.811 |
+|       i_mult                                 |     2.811 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.811 |
+|           two_fabric_mults.add_bypass_delay  |     0.131 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.186 |
+|           two_fabric_mults.iLUT_side         |     1.109 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.040 |
+|   mult_u5                                    |     2.842 |
+|     U0                                       |     2.842 |
+|       i_mult                                 |     2.842 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.842 |
+|           two_fabric_mults.add_bypass_delay  |     0.145 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.227 |
+|           two_fabric_mults.iLUT_side         |     1.044 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.058 |
+|   mult_u50                                   |     3.230 |
+|     U0                                       |     3.230 |
+|       i_mult                                 |     3.230 |
+|         gDSP.gHYBRID.iHYBRID                 |     3.230 |
+|           two_fabric_mults.add_bypass_delay  |     0.156 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.217 |
+|           two_fabric_mults.iLUT_side         |     1.462 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.069 |
+|   mult_u6                                    |     2.966 |
+|     U0                                       |     2.966 |
+|       i_mult                                 |     2.966 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.966 |
+|           two_fabric_mults.add_bypass_delay  |     0.256 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.368 |
+|           two_fabric_mults.iLUT_side         |     0.862 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.062 |
+|   mult_u7                                    |     2.913 |
+|     U0                                       |     2.913 |
+|       i_mult                                 |     2.913 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.913 |
+|           two_fabric_mults.add_bypass_delay  |     0.147 |
+|           two_fabric_mults.dsp_based.iDSP    |     1.220 |
+|           two_fabric_mults.iLUT_side         |     1.102 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.071 |
+|   mult_u8                                    |     1.260 |
+|     U0                                       |     1.260 |
+|       i_mult                                 |     1.260 |
+|         gDSP.gHYBRID.iHYBRID                 |     1.260 |
+|           two_fabric_mults.add_bypass_delay  |     0.062 |
+|           two_fabric_mults.dsp_based.iDSP    |     0.584 |
+|           two_fabric_mults.iLUT_side         |     0.358 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.016 |
+|   mult_u9                                    |     2.048 |
+|     U0                                       |     2.048 |
+|       i_mult                                 |     2.048 |
+|         gDSP.gHYBRID.iHYBRID                 |     2.048 |
+|           two_fabric_mults.add_bypass_delay  |     0.114 |
+|           two_fabric_mults.dsp_based.iDSP    |     0.969 |
+|           two_fabric_mults.iLUT_side         |     0.640 |
+|           two_fabric_mults.iLUT_top          |     0.000 |
+|           two_fabric_mults.mult_bypass_delay |     0.035 |
++----------------------------------------------+-----------+
+
+
