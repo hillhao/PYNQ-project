@@ -43,7 +43,7 @@
 	endfunction
 
 	// Total number of input data.
-	localparam NUMBER_OF_INPUT_WORDS  = 8;
+	localparam NUMBER_OF_INPUT_WORDS  = 50;
 	// bit_num gives the minimum number of bits needed to address 'NUMBER_OF_INPUT_WORDS' size of FIFO.
 	localparam bit_num  = clogb2(NUMBER_OF_INPUT_WORDS-1);
 	// Define the states of state machine
@@ -111,8 +111,9 @@
 	// 
 	// The example design sink is always ready to accept the S_AXIS_TDATA  until
 	// the FIFO is not filled with NUMBER_OF_INPUT_WORDS number of input words.
-	assign axis_tready = ((mst_exec_state == WRITE_FIFO) && (write_pointer <= NUMBER_OF_INPUT_WORDS-1));
+	//assign axis_tready = ((mst_exec_state == WRITE_FIFO) && (write_pointer <= NUMBER_OF_INPUT_WORDS-1));
 
+  assign axis_tready = 1'b1;
 	always@(posedge S_AXIS_ACLK)
 	begin
 	  if(!S_AXIS_ARESETN)
@@ -141,7 +142,7 @@
 
 	// FIFO write enable generation
 	assign fifo_wren = S_AXIS_TVALID && axis_tready;
-
+	
 	// FIFO Implementation
 	generate 
 	  for(byte_index=0; byte_index<= (C_S_AXIS_TDATA_WIDTH/8-1); byte_index=byte_index+1)
@@ -184,7 +185,7 @@
 	      begin
 	        rx_axi_slv_data <= 32'b0;
 	      end  
-	      else if (rx_axi_slv_en)
+	      else if (fifo_wren)
 	      begin
 	      	rx_axi_slv_data <= S_AXIS_TDATA;
 	      end

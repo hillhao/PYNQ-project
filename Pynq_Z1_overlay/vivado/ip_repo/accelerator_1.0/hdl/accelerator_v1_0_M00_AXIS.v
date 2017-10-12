@@ -37,7 +37,7 @@
 	);
 	//Total number of output data.
 	// Total number of output data                                                 
-	localparam NUMBER_OF_OUTPUT_WORDS = 8;                                               
+	localparam NUMBER_OF_OUTPUT_WORDS = 50;                                               
 	                                                                                     
 	// function called clogb2 that returns an integer which has the                      
 	// value of the ceiling of the log base 2.                                           
@@ -209,8 +209,8 @@
 	//FIFO read enable generation 
 	
 
-	assign tx_en = M_AXIS_TREADY && axis_tvalid;   
-	                                                     
+	//assign tx_en = M_AXIS_TREADY && axis_tvalid;   
+//	                                                     
 	    // Streaming output data is read from FIFO       
 	    always @( posedge M_AXIS_ACLK )                  
 	    begin                                            
@@ -254,9 +254,27 @@
 	      	rx_axi_slv_data_d1 <= rx_axi_slv_data;
 	      end
 	end
+	
+	
+	assign tx_en =  rx_axi_slv_en_d1; 
+	
+//	// Streaming output data is read from FIFO       
+//	always @( posedge M_AXIS_ACLK )                  
+//	begin                                            
+//	  if(!M_AXIS_ARESETN)                            
+//	    begin                                        
+//	      stream_data_out <= 32'b0;                      
+//	    end                                          
+//	  else if (tx_en)// && M_AXIS_TSTRB[byte_index]  
+//	    begin                                        
+//	      stream_data_out <= rx_axi_slv_data_d1;   
+//	    end                                          
+//	end                                              
+
+	
 		
-	assign M_AXIS_TVALID = rx_axi_slv_en_d1;
-  assign M_AXIS_TDATA	 = rx_axi_slv_data_d1;
+	assign M_AXIS_TVALID = rx_axi_slv_en;
+  assign M_AXIS_TDATA	 = rx_axi_slv_data;
   
   assign neg_rx_axi_slv_en = (!rx_axi_slv_en) && rx_axi_slv_en_d1;
   
