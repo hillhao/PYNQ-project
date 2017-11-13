@@ -5,8 +5,9 @@
    through overlay. The overlay base project is based on the PYNQ borad design (https://github.com/Xilinx/PYNQ), 
    which might be based on Vivado 16.1, therefore you'd better open the base project with the same version software.
    You can build an Overlay application from scratch or by using the base project. I advise that you can start
-   from the base project because it includes almost all the modules in the PYNQ board. Let's start. Firstly, download
-   the base project. In order to build your own overlay design, you should follow the below instructions:
+   from the base project because it includes the hardware implement of almost all modules in the PYNQ board. 
+   Let's start. Firstly, download the base project. In order to build your own overlay design, you should follow 
+   the below instructions:
 
       a, creat a new project in the ~/vivado/base folder;
 
