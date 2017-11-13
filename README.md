@@ -56,20 +56,40 @@ We can access to the linux Operation System (OS) through building a new Terminal
 
 # 3. Software installation
 
-In this project, we design and train neural network language model with Python3.4, and design and debug Overlay with Vivado 16.1
+In this project, we design and train neural network language model with Python3.5, and design and debug Overlay with Vivado 16.1. In order to run Python code, We should install Python programming environmemnt in PC and PYNQ board repectively. The Vivado 16.1 should be installed in PC for overlay design.
 
-For Python programming enironment: 
+For Python programming enironment in PC: 
 
-We firstly install Anaconda (https://www.anaconda.com/) which is a very popular Python programming platform where the Python programming environment can be managed effectively. When the Anaconda platform is ready, we can create our own Python programming environment in the platform. For example, we use Python3.4 to design neural network model, therefore we create an environment called python34 in Anaconda and install related softwares such as Python3.4, TensorFlow1.0, Numpy, and so on in this environment.
+We firstly install Anaconda (https://www.anaconda.com/) which is a very popular Python programming platform where the Python programming environment can be managed effectively. When the Anaconda platform is ready, we can create our own Python programming environment in the platform. For example, we use Python3.4 to design neural network model, therefore we create an environment called python34 in Anaconda and install related softwares such as Python3.5.4, TensorFlow1.0, Numpy, and so on in this environment. Basically, Python software is added when the Anaconda was installed successfully. But you can install any Python version in your own enironment.
 The following commands might be useful when using Anaconda.
 
 ```diff
- conda creat --name python34 pytho=3.4   // create an environment called python34
+ conda creat --name python35 pytho=3.5   // + create an environment called python35
 
- conda info -e                           // check anaconda environment
+ conda info -e                           // + check anaconda environment
 
- activate python34                       //  activate python34 environment which we create in the first stage
+ activate python35                       // + activate python34 environment which we create in the first stage
+ 
+ deactivate python35                     // + deactivate python34 environment which we create in the first stage
+ 
+ conda remove --name python35 --all      // + delete exist enironment
+ 
+ conda list                              // + check installed libraries
 ```
+
+The command for installing Python in PC as follows:
+
+```diff
+ conda install python=3.5.4             // + install python35
+```
+
+The other required software libraries are listed in the requirements.txt file. The following command can install all these libraries.
+
+```diff
+  pip install -r requirements.txt       // + install the required libraries packages 
+```
+
+If there are some libraries can not be installed by pip or conda install command. You can try to download the source package, then decompression the package, finally install the library by runing python setup.py command.
 
 
 
