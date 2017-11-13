@@ -40,7 +40,7 @@ Before using the wifi adapter, you need to configure the network segment of yout
 
 As we can see, this is a Jupyter notebook interface. Let's check the system information first.
 
-We can access to the linux Operation System (OS) through building a new Terminal and check the system information such as the linux OS version, the number of CPUs, and long_bits of the system. The linux OS information is shown as follows. 
+We can access to the linux Operation System (OS) through building a new Terminal and check the system information such as the linux OS version, the number of CPUs, and long_bits of the system. The linux OS instructions and information is shown as follows. 
 
 cat /proc/cpuinfo     // display the cpu information
 
@@ -49,6 +49,7 @@ lsb_release -a        // display os version
 getconf LONG_BIT      // display 32/64 bit system
 
 uname -a              // display PYNQ os information
+
 
 ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/systeminfo.jpg)
 
