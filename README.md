@@ -60,7 +60,7 @@ We can access to the linux Operation System (OS) through building a new Terminal
 
 In this project, we design and train neural network language model with Python3.5, and design and debug Overlay with Vivado 16.1. In order to run Python code, We should install Python programming environmemnt in PC and PYNQ board repectively.The 64bit computer is necessary, because TensorFlow only support 64bit OS. The Vivado 16.1 should be installed in PC for overlay design.
 
-For Python programming enironment in PC: 
+### For Python programming enironment in PC
 
 We firstly install Anaconda (https://www.anaconda.com/) which is a very popular Python programming platform where the Python programming environment can be managed effectively. When the Anaconda platform is ready, we can create our own Python programming environment in the platform. For example, we use Python3.4 to design neural network model, therefore we create an environment called python34 in Anaconda and install related softwares such as Python3.5.4, TensorFlow1.0, Numpy, and so on in this environment. Basically, Python software is added when the Anaconda was installed successfully. But you can install any Python version in your own enironment.
 The following commands might be useful when using Anaconda.
@@ -98,6 +98,23 @@ The other required software libraries are listed in the requirements.txt file. T
 ```
 
 If there are some libraries can not be installed by pip or conda install command. You can try to download the source package, then decompression the package, finally install the library by runing python setup.py command.
+
+
+### For Python programming enironment in PYNQ board
+
+When the configuration of PYNQ board has been done, we can connect the PYNQ board to PC through USB cable. Then log into the Linux system to install the required softwares.
+
+The commands for installing Python in PYNQ board as follows:
+
+```diff
+sudo apt-get update
+
+# For Python 2.7
+sudo apt-get install python-pip python-dev
+
+# For Python 3.3+
+sudo apt-get install python3-pip python3-dev
+```
 
 
 
