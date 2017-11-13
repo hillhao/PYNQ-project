@@ -46,3 +46,5 @@
    of memory and CPU L1.
 
    ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/ps%20arch.jpg)
+
+# 3. Debug 
