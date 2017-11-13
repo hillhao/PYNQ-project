@@ -54,7 +54,22 @@ uname -a              // display PYNQ os information
 ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/systeminfo.jpg)
 
 
-3. Software installation
+# 3. Software installation
+
+In this project, we design and train neural network language model with Python3.4, and design and debug Overlay with Vivado 16.1
+
+For Python programming enironment
+
+We firstly install Anaconda (https://www.anaconda.com/) which is a very popular Python programming platform where the Python programming environment can be managed effectively. When the Anaconda platform is ready, we can create our own Python programming environment in the platform. For example, we use Python3.4 to design neural network model, therefore we create an environment called python34 in Anaconda.
+The following commands might be useful when using Anaconda.
+
+conda creat --name python34 pytho=3.4   // create an environment called python34
+
+conda info -e                           // check anaconda environment
+
+activate python34                       //  activate python34 environment which we create in the first stage
+
+
 # 4. Overlay design
 
 Please refer to the readme.md file in the Pynq_Z1_overlay folder.
