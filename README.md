@@ -6,7 +6,7 @@ usage of PYNQ board, Deep Neural Network design and training,FPGA accelerator de
 programming on FPGA. The paper address is https://arxiv.org/abs/1710.10296 .
 
 
-Contents
+# Contents
 1. Introduction
 2. PYNQ configuration
 3. Software installation
@@ -15,11 +15,11 @@ Contents
 6. Language Model 
 7. Frequent Questions Answers
 
-# 1. Introduction
+## 1. Introduction
 
 FPGA has been largely applied into speech recognition, machine learning, and cloud computation such as cloud service and Bing search accelerating engine on Microsoft, because it has great parallel computation capacity as well as low power consumption compared to general processor like CPU or MCU. However, these applications mainly focus on FPGA clusters which have super power on executing massive matrix or convolution operation but lack of mobility. Therefore we tend to do some similar researches on single FPGA platform to explore or extend the application of FPGA in these fields. In this project, we design a Deep Recurrent Neural Network (DRNN) Language Model (LM) and implement a hardware accelerator with AXI Stream interface on PYNQ which is equipped with XILINX ZYNQ SOC XC7Z020-1CLG400C. PYNQ has not only abundant programmable logic resources but also flexible embedded operation system, which makes it suitable to be applied in natural language processing field. We design the DRNN language model with Python and Theano, train the model on CPU platform, and deploy the model on PYNQ board to test the validation of the model with Jupyter notebook. Meanwhile, we design the hardware accelerator with Overlay which is a kind of hardware library on PYNQ, and verify the acceleration effect on PYNQ board. Finally, we found the DRNN language model can be deployed on the embedded system smoothly and the Overlay accelerator with AXI Stream interface performs 20GOPS processing capacity.
 
-# 2. PYNQ configuration
+## 2. PYNQ configuration
 
 PYNQ is the abbreviation of Python Productivity for ZYNQ [7]. From the hardware architecture perspective, the core chip of PYNQ is still ZYNQ which is a FPGA SOC platform combined Programmable Logic (PL) with Programmable System (PS) to perform signals sampling, processing, and output. Form the software perspective, integrated with Python language and other programming libraries, PYNQ makes it convenient to develop embedded system based on FPGA. 
 
@@ -42,21 +42,23 @@ As we can see, this is a Jupyter notebook interface. Let's check the system info
 
 We can access to the linux Operation System (OS) through building a new Terminal and check the system information such as the linux OS version, the number of CPUs, and long_bits of the system. The linux OS instructions and information is shown as follows. 
 
-+ cat /proc/cpuinfo     // display the cpu information
+```diff
+ cat /proc/cpuinfo     // display the cpu information
 
-+ lsb_release -a        // display os version 
+ lsb_release -a        // display os version 
 
-+ getconf LONG_BIT      // display 32/64 bit system
+ getconf LONG_BIT      // display 32/64 bit system
 
-+ uname -a              // display PYNQ os information
+ uname -a              // display PYNQ os information
+```
 
 
 ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/systeminfo.jpg)
 
 
-# 3. Software installation
+## 3. Software installation
 
-In this project, we design and train neural network language model with Python3.5, and design and debug Overlay with Vivado 16.1. In order to run Python code, We should install Python programming environmemnt in PC and PYNQ board repectively. The Vivado 16.1 should be installed in PC for overlay design.
+In this project, we design and train neural network language model with Python3.5, and design and debug Overlay with Vivado 16.1. In order to run Python code, We should install Python programming environmemnt in PC and PYNQ board repectively.The 64bit computer is necessary, because TensorFlow only support 64bit OS. The Vivado 16.1 should be installed in PC for overlay design.
 
 For Python programming enironment in PC: 
 
@@ -83,6 +85,12 @@ The command for installing Python in PC as follows:
  conda install python=3.5.4             // + install python35
 ```
 
+The command for installing TensorFlow in Pc as follows:
+
+```diff
+pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.1.0-cp35-cp35m-win_amd64.whl
+```
+
 The other required software libraries are listed in the requirements.txt file. The following command can install all these libraries.
 
 ```diff
@@ -93,10 +101,10 @@ If there are some libraries can not be installed by pip or conda install command
 
 
 
-# 4. Overlay design
+## 4. Overlay design
 
 Please refer to the readme.md file in the Pynq_Z1_overlay folder.
 
-5. Neural Network design
-6. Language Model 
-7. Frequent Questions Answers
+## 5. Neural Network design
+## 6. Language Model 
+## 7. Frequent Questions Answers
