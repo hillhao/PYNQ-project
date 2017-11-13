@@ -42,6 +42,8 @@ As we can see, this is a Jupyter notebook interface. Let's check the system info
 
 We can access to the linux Operation System (OS) through building a new Terminal and check the system information such as the linux OS version, the number of CPUs, and long_bits of the system. The linux OS information is shown as follows.
 
+![image](https://github.com/hillhao/PYNQ-project/blob/master/images/usbpynq.jpg)
+
 
 3. Software installation
 # 4. Overlay design
