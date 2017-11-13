@@ -19,6 +19,8 @@
       d, save the tcl file when the implement process is finished, using the following instruction (choose your own path
       and tcl file name): 
       write  F:/xil_pro/Pynq-Z1_081902bk/bitstream/new_overlay.tcl
+      
+      e, copy the bit file and tcl file into the PYNQ board, you can invoke the overlay and do what you want to do.
 
  
 # 2. Design and implement
