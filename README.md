@@ -44,7 +44,10 @@ We can access to the linux Operation System (OS) through building a new Terminal
 
 
 3. Software installation
-4. Overlay design
+# 4. Overlay design
+
+Please refer to the readme.md file in the Pynq_Z1_overlay folder.
+
 5. Neural Network design
 6. Language Model 
 7. Frequent Questions Answers
