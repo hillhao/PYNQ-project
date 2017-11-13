@@ -42,13 +42,13 @@ As we can see, this is a Jupyter notebook interface. Let's check the system info
 
 We can access to the linux Operation System (OS) through building a new Terminal and check the system information such as the linux OS version, the number of CPUs, and long_bits of the system. The linux OS instructions and information is shown as follows. 
 
-cat /proc/cpuinfo     // display the cpu information
++ cat /proc/cpuinfo     // display the cpu information
 
-lsb_release -a        // display os version 
++ lsb_release -a        // display os version 
 
-getconf LONG_BIT      // display 32/64 bit system
++ getconf LONG_BIT      // display 32/64 bit system
 
-uname -a              // display PYNQ os information
++ uname -a              // display PYNQ os information
 
 
 ![image](https://github.com/hillhao/PYNQ-project/blob/master/images/systeminfo.jpg)
@@ -58,16 +58,18 @@ uname -a              // display PYNQ os information
 
 In this project, we design and train neural network language model with Python3.4, and design and debug Overlay with Vivado 16.1
 
-For Python programming enironment
+For Python programming enironment: 
 
-We firstly install Anaconda (https://www.anaconda.com/) which is a very popular Python programming platform where the Python programming environment can be managed effectively. When the Anaconda platform is ready, we can create our own Python programming environment in the platform. For example, we use Python3.4 to design neural network model, therefore we create an environment called python34 in Anaconda.
+We firstly install Anaconda (https://www.anaconda.com/) which is a very popular Python programming platform where the Python programming environment can be managed effectively. When the Anaconda platform is ready, we can create our own Python programming environment in the platform. For example, we use Python3.4 to design neural network model, therefore we create an environment called python34 in Anaconda and install related softwares such as Python3.4, TensorFlow1.0, Numpy, and so on in this environment.
 The following commands might be useful when using Anaconda.
 
-conda creat --name python34 pytho=3.4   // create an environment called python34
 
-conda info -e                           // check anaconda environment
++ conda creat --name python34 pytho=3.4   // create an environment called python34
 
-activate python34                       //  activate python34 environment which we create in the first stage
++ conda info -e                           // check anaconda environment
+
++ activate python34                       //  activate python34 environment which we create in the first stage
+
 
 
 # 4. Overlay design
