@@ -63,12 +63,13 @@ For Python programming enironment:
 We firstly install Anaconda (https://www.anaconda.com/) which is a very popular Python programming platform where the Python programming environment can be managed effectively. When the Anaconda platform is ready, we can create our own Python programming environment in the platform. For example, we use Python3.4 to design neural network model, therefore we create an environment called python34 in Anaconda and install related softwares such as Python3.4, TensorFlow1.0, Numpy, and so on in this environment.
 The following commands might be useful when using Anaconda.
 
+```diff
+ conda creat --name python34 pytho=3.4   // create an environment called python34
 
-+ conda creat --name python34 pytho=3.4   // create an environment called python34
+ conda info -e                           // check anaconda environment
 
-+ conda info -e                           // check anaconda environment
-
-+ activate python34                       //  activate python34 environment which we create in the first stage
+ activate python34                       //  activate python34 environment which we create in the first stage
+```
 
 
 
