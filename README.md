@@ -102,7 +102,7 @@ If there are some libraries can not be installed by pip or conda install command
 
 ### For Python programming enironment in PYNQ board
 
-When the configuration of PYNQ board has been done, we can connect the PYNQ board to PC through USB cable. Then log into the Linux system to install the required softwares.
+When the configuration of PYNQ board has been done, we can connect the PYNQ board to PC through USB cable. Then log into the Linux system to install the required softwares.Because we don't tend to build multi environment in the PYNQ board, the Anaconda is not necessary. We just install the libraries we need.
 
 The commands for installing Python in PYNQ board as follows:
 
@@ -116,6 +116,13 @@ sudo apt-get install python-pip python-dev
 sudo apt-get install python3-pip python3-dev
 ```
 
+The commands for installing TensorFlow in PYNQ board as follows:
+
+```diff
+# For Python 3.4
+wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
+sudo pip3 install tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
+```
 
 
 ## 4. Overlay design
