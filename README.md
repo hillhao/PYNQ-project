@@ -2,7 +2,7 @@
 This project is my master project"Neural network Language model design based on PYNQ board".
 There are two interesting topices in this project: design FPGA with Python and deploy a Deep
 Neural Network model on an small embedded system. Bascially, The contents mainly include the 
-usage of PYNQ board, Deep Neural Network design and training,FPGA accelerator desian, Python 
+usage of PYNQ board, Deep Neural Network design and training,FPGA accelerator design, Python 
 programming on FPGA. The paper address is https://arxiv.org/abs/1710.10296 .
 
 
